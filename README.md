@@ -3,6 +3,8 @@
 A KOReader plugin that pulls KOReader plugins from a forked [leaf-casa](https://leaf.casa)
 relay that permits uploading plugins and installs them into the KOReader plugins folder.
 
+The primary use case for me was being able to transfer books and plugins at once from one application, leaf-casa. 
+
 This is the device-side counterpart to the forked leaf-casa's plugin-transfer support
 (`.koplugin` / `.zip` uploads are tagged with `target: "plugin"`).
 
