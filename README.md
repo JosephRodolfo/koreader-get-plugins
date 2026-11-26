@@ -1,15 +1,14 @@
 # Get Plugins
 
-A KOReader plugin that pulls KOReader plugin bundles from a [leaf-casa](https://leaf.casa)
-relay and installs them into the KOReader plugins folder.
+A KOReader plugin that pulls KOReader plugins from a forked [leaf-casa](https://leaf.casa)
+relay that permits uploading plugins and installs them into the KOReader plugins folder.
 
-This is the device-side counterpart to leaf-casa's plugin-transfer support
+This is the device-side counterpart to the forked leaf-casa's plugin-transfer support
 (`.koplugin` / `.zip` uploads are tagged with `target: "plugin"`).
 
 ## What it does
 
-1. Reads the queue for a 4-character pairing code from a leaf-casa server
-   (`GET /api/status/<key>`).
+1. Reads the queue for a 4-character pairing code from the reciever server.
 2. Filters files flagged as plugins (`target == "plugin"`, `.koplugin`, `.zip`).
 3. Downloads each archive (`GET /api/download/<key>/<id>/<filename>`).
 4. Extracts it into the KOReader user plugin folder:
@@ -18,6 +17,9 @@ This is the device-side counterpart to leaf-casa's plugin-transfer support
    - Kindle: `koreader/plugins/`
    - PocketBook: `applications/koreader/plugins/`
    - Android: `koreader/plugins/`
+
+Only ever tested on Kobo however. 
+
 5. Offers to restart KOReader so the new plugin loads.
 
 It can do this automatically in the background (see **Auto-sync** below), so
